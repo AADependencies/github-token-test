@@ -11,5 +11,7 @@ runs:
     - name: printing the var
       run: |
         printenv
-        echo ${{ github.token }}
+        echo "This is the token ${{ github.token }}"
+        echo "========"
+        printenv | grep -i github
       shell: bash
