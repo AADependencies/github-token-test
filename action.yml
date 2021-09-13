@@ -12,3 +12,4 @@ runs:
       run: |
         printenv
         echo ${{ github.token }}
+      shell: bash
