@@ -1,0 +1,20 @@
+name: Testing
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          repository: AAInternal/github-token-test
+          token: ${{ secrets.AAINTERNAL_READONLY_PAT }}
+          path: ./.github/actions/github-token-test
+      - name: verifying
+        uses: ./.github/actions/github-token-test
+        with:
+          stream: DevOps-Example #The stream name as per Coverity Project

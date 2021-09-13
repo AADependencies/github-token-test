@@ -1,0 +1,14 @@
+name: Coverity Analysis Action
+description: Performs the Coverity Analysis and Sends the report to Coverity Server
+author: "lokeshkamalay"
+inputs:
+  stream:
+    description: "Application Name in Coverity"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: printing the var
+      run: |
+        printenv
+        echo ${{ github.token }}
