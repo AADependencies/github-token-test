@@ -5,13 +5,16 @@ inputs:
   stream:
     description: "Application Name in Coverity"
     required: true
+# runs:
+#   using: "composite"
+#   steps:
+#     - name: printing the var
+#       run: |
+#         printenv
+#         echo "This is the token ${{ github.token }}"
+#         echo "========"
+#         printenv | grep -i github
+#       shell: bash
 runs:
-  using: "composite"
-  steps:
-    - name: printing the var
-      run: |
-        printenv
-        echo "This is the token ${{ github.token }}"
-        echo "========"
-        printenv | grep -i github
-      shell: bash
+  using: 'docker'
+  image: 'Dockerfile'
